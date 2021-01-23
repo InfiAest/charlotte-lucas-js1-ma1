@@ -37,7 +37,7 @@ heading.style.fontSize = "2em";
 
 // question 4
 
-heading.innerHTML = "<div class='subheading'>" + heading.innerHTML + "</div>";
+heading.className = "subheading";
 
 
 // question 5
@@ -61,8 +61,45 @@ resultsContainer.style.backgroundColor = "yellow";
 
 // question 7
 
+function makeList(list) {
 
+    for (let i = 0; i < list.length; i++) {
+        
+        console.log(list[i].name);
+    }
+
+}
+
+makeList(cats);
 
 
 // question 8
 
+let catsHtml = "";
+const container = document.querySelector(".cat-container");
+
+
+function createCats(cats) {
+
+    for (let i = 0; i < cats.length; i++) {
+
+        let age = "Unknown age";
+
+        if (cats[i].age) {
+            age = cats[i].age
+        }
+
+        catsHtml += `<div>
+                        <h5>${cats[i].name}</h5>
+                        <p>${age}</p>
+                    </div>
+                    `;
+
+    }
+
+    return catsHtml;
+}
+
+createCats(cats);
+
+container.innerHTML = catsHtml;
